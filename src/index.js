@@ -3,5 +3,10 @@ import ReacDom from 'react-dom';
 
 import App from './App';
 import './index.css';
+import { ContexProvider } from './contexts/ContextProvider';
 
-ReacDom.render(<App/>, document.getElementById('root'));
+ReacDom.render(
+    <ContexProvider>
+        <App />
+    </ContexProvider>
+    , document.getElementById('root'));
