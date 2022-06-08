@@ -21,13 +21,13 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
         className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
       >
       </span>
-        {icon}
+      {icon}
     </button>
   </TooltipComponent>
 )
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize } = useStateContext();
+  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize, currentColor } = useStateContext();
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -36,11 +36,11 @@ const Navbar = () => {
 
     handleResize();
 
-    return () =>window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
-    if(screenSize <= 900){
+    if (screenSize <= 900) {
       setActiveMenu(false);
     } else {
       setActiveMenu(true)
@@ -53,28 +53,28 @@ const Navbar = () => {
       <NavButton
         title='Menu'
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
-        color='blue'
+        color={currentColor}
         icon={<AiOutlineMenu />}
       />
       <div className='flex'>
         <NavButton
           title='Cart'
           customFunc={() => handleClick('cart')}
-          color='blue'
+          color={currentColor}
           icon={<FiShoppingCart />}
         />
         <NavButton
           title='Chat'
           dotColor='#03C9D7'
           customFunc={() => handleClick('chat')}
-          color='blue'
+          color={currentColor}
           icon={<BsChatLeft />}
         />
         <NavButton
           title='Notifications'
           dotColor='#03C9D7'
           customFunc={() => handleClick('notification')}
-          color='blue'
+          color={currentColor}
           icon={<RiNotificationLine />}
         />
         <TooltipComponent
@@ -83,17 +83,17 @@ const Navbar = () => {
         >
           <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
             onClick={() => handleClick('userProfile')}>
-              <img 
+            <img
               className='rounded-full w-8 h-8'
               src={avatar}
-              />
-              <p>
-                <span className='text-gray-400'>Hi, </span>{' '}
-                <span className='text-gray-400 font-bold ml-1 text-14'>Micheal</span>
-              </p>
-              <MdKeyboardArrowDown 
+            />
+            <p>
+              <span className='text-gray-400'>Hi, </span>{' '}
+              <span className='text-gray-400 font-bold ml-1 text-14'>Micheal</span>
+            </p>
+            <MdKeyboardArrowDown
               className='text-gray-400 text-14'
-              />
+            />
           </div>
         </TooltipComponent>
 
