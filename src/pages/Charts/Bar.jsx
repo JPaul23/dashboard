@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Bar = () => {
   return (
@@ -6,4 +6,4 @@ const Bar = () => {
   )
 }
 
-export default Bar
+export default Bar;
