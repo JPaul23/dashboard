@@ -85,14 +85,7 @@ const Ecommerce = () => {
               </div>
 
               <div className='mt-5'>
-                {/* <SparkLine
-                  currentColor={currentColor}
-                  id='line-sparkline'
-                  type='Line'
-                  height='80px'
-                  width='300px'
-                  color={currentColor}
-                /> */}
+                {/* SparkLine graph */}
               </div>
               <div className='mt-10'>
                 <Button
